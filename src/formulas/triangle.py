@@ -2,7 +2,7 @@ import math
 
 class Triangle:
     @staticmethod
-    def area(base_side=None, height=None, side_a=None, side_b=None, side_c=None, angle=None,
+    def area(*, base_side=None, height=None, side_a=None, side_b=None, side_c=None, angle=None,
              equilateral_side=None, circum_radius=None, in_radius=None):
         
         # 1. Base and Height
@@ -37,7 +37,9 @@ class Triangle:
 
     @staticmethod
     def area_from_angles(angle_a, angle_b, angle_c, circum_radius):
-        return 2 * (circum_radius**2) * math.sin(angle_a) * math.sin(angle_b) * math.sin(angle_c)
+         # This is a specific formula name, but let's encourage kwarg usage anyway if it had optional params.
+         # For fixed params, positional is fine, but prompt says "Smart Solver" logic.
+         return 2 * (circum_radius**2) * math.sin(angle_a) * math.sin(angle_b) * math.sin(angle_c)
 
     @staticmethod
     def equilateral_height(side):

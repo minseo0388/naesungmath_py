@@ -11,34 +11,27 @@ def run():
     base_side = 5
     height = 10
     
-    # Before (Risky Manual Formula)
-    vol_old = (1/3) * (base_side ** 2) * height
-    
-    # After (Safe Function)
+    # After (Keyword Arguments MANDATORY due to *)
     vol_new = Solid3D.square_pyramid_volume(base_side=5, height=10)
-    print(f"Volume: Old={vol_old}, New={vol_new}")
+    print(f"Volume: {vol_new}")
 
-    # 2. Smart Logic (Auto-detection)
-    # Scenario: Database record has 'slant_edge' but 'height' is null.
-    db_record = {'a': 5, 'b': 12, 'h': None}
+    # 2. Smart Logic
+    db_record = {'a': 5, 'b': 12}
     
-    # Just pass what you have
-    vol_slant = Solid3D.square_pyramid_volume(
-        base_side=db_record['a'], 
-        slant_edge=db_record['b'] # Smart Solver calculates height internally
-    )
+    # Dictionary unpacking works great with keyword-only args if keys match!
+    # vol_slant = Solid3D.square_pyramid_volume(**db_record) 
+    # But for manual call:
+    vol_slant = Solid3D.square_pyramid_volume(base_side=5, slant_edge=12)
     print(f"Volume from Slant: {vol_slant}")
 
-    # 3. Nesting (Pipeline)
-    # Scenario: Volume of a pyramid where height is the hypotenuse of a right triangle (3, 4)
+    # 3. Nesting
     complex_vol = Solid3D.square_pyramid_volume(
         base_side=6,
-        height=Triangle.pythagoras(3, 4) # Returns 5, used as height
+        height=Triangle.pythagoras(a=3, b=4) # Named args
     )
     print(f"Complex Volume (h=5): {complex_vol}")
 
     # 4. Data Science Integration
-    # Summing generic areas without caring about formula details
     total_area = BasicMath.add(
         Circle.area(radius=5),
         Quadrilateral.square_area(side=5)
