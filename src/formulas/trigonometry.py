@@ -1,10 +1,14 @@
 import math
 
-def sin_deg(degrees):
-    return math.sin(math.radians(degrees))
+class Trigonometry:
+    @staticmethod
+    def degree_to_rad(degrees):
+        return degrees * (math.pi / 180.0)
 
-def cos_deg(degrees):
-    return math.cos(math.radians(degrees))
+    @staticmethod
+    def radian(a):
+        return Trigonometry.degree_to_rad(a)
 
-def tan_deg(degrees):
-    return math.tan(math.radians(degrees))
+    @staticmethod
+    def rad_to_degree(radians):
+        return radians * (180.0 / math.pi)
