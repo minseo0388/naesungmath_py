@@ -1,5 +1,8 @@
 # Naesungmath
 
+[![PyPI version](https://badge.fury.io/py/naesungmath.svg)](https://badge.fury.io/py/naesungmath)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/naesungmath)](https://pypi.org/project/naesungmath/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![install size](https://packagephobia.com/badge?p=naesungmath@3.1.0)](https://packagephobia.com/result?p=naesungmath@3.1.0)
 
 
